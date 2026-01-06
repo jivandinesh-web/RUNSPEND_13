@@ -3,8 +3,20 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <title>Race Budgeting Made Simple</title>
+    
+    <!-- PWA / Standalone Meta Tags -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="RunSpend">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#171717">
+    
+    <!-- Microsoft / Windows tiles -->
+    <meta name="msapplication-TileColor" content="#171717">
+    <meta name="application-name" content="RunSpend">
+
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
@@ -17,6 +29,11 @@
             font-family: var(--apple-font);
             scroll-behavior: smooth;
             transition: background-color 0.3s ease, color 0.3s ease;
+            /* Prevent bounce scrolling on mobile for a more app-like feel */
+            overscroll-behavior-y: none;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
         }
         .gradient-charcoal-orange {
             background: linear-gradient(to right, var(--charcoal), var(--ember-orange));
@@ -78,6 +95,29 @@
         }
         .dark .border {
             border-color: #334155 !important;
+        }
+
+        /* Custom scrollbar for a cleaner look */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 10px;
+        }
+        .dark ::-webkit-scrollbar-thumb {
+            background: #334155;
+        }
+
+        /* Fullscreen API specific tweaks */
+        :fullscreen {
+            background-color: #f9fafb;
+        }
+        .dark:fullscreen {
+            background-color: #0f172a;
         }
     </style>
 <script type="importmap">
